@@ -4,7 +4,13 @@ if(process.env.NODE_ENV !== 'production'){
 const express=require('express');
 const app=express();
 const expressLayouts=require('express-ejs-layouts');
+
+
 const indexRouter=require('./routers/index');
+const authorRouter=require('./routers/authors');
+
+const bodyParser=require('body-parser');
+app.use(bodyParser.urlencoded({limit:'10mb',extended:false}));
 
 
 const mongoose=require('mongoose'); 
@@ -16,7 +22,7 @@ db.on('error',(error)=>{
 })
 
 db.once('open',()=>{
- console.log('Connected too Mongoose')
+ console.log('Connected to Mongoose')
 })  
 
 app.set('view engine', 'ejs');
@@ -25,6 +31,7 @@ app.set('layout','layouts/layout');
 app.use(expressLayouts);
 app.use(express.static('public'));
 app.use('/',indexRouter);
+app.use('/authors',authorRouter);
 
 
 app.listen(3000,()=>{
