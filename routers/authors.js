@@ -1,51 +1,45 @@
-const express=require('express');
-const router=express.Router();
-const Author=require('../models/author');
+const express = require("express");
+const router = express.Router();
+const Author = require("../models/author");
 
 //All Author Router
-router.get('/',async (req,res)=>{
-    let searchOptions={};
-    
-        if(req.query.name != null && req.query.name !== ''){
-        searchOptions.name=new RegExp(req.query.name,'i');//i so khớp không quan tâm đến chữ hoa chữ thường
-        }
-    try{
-        
-        console.log('vaoo get');
-        console.log(searchOptions);
-        
-        
-        const authors=await Author.find(searchOptions)
-        res.render('authors/index',{
-            authors:authors ,
-            searchOptions:req.query
-        });
-    }catch{
-        res.redirect('/');
-    }
-    
-})
+router.get("/", async (req, res) => {
+  let searchOptions = {};
+
+  if (req.query.name != null && req.query.name !== "") {
+    searchOptions.name = new RegExp(req.query.name, "i"); //i so khớp không quan tâm đến chữ hoa chữ thường
+  }
+  try {
+    const authors = await Author.find(searchOptions);
+    res.render("authors/index", {
+      authors: authors,
+      searchOptions: req.query
+    });
+  } catch {
+    res.redirect("/");
+  }
+});
 
 //New Author Route
-router.get('/new',(req,res)=>{
-    res.render('authors/new',{author:new Author()});
-})
+router.get("/new", (req, res) => {
+  res.render("authors/new", { author: new Author() });
+});
 
 //Create Author Router
-router.post('/',async (req,res)=>{
-    const author=new Author({
-        name:req.body.name
-    })
+router.post("/", async (req, res) => {
+  const author = new Author({
+    name: req.body.name
+  });
 
-    try{
-        const newAuthor=await author.save();
-        res.redirect('authors'); 
-    }catch{
-        res.render('authors/new',{
-            author:author,
-            errorMessage:'Error creating Author'
-        })
-    }
-})
+  try {
+    const newAuthor = await author.save();
+    res.redirect("authors");
+  } catch {
+    res.render("authors/new", {
+      author: author,
+      errorMessage: "Error creating Author"
+    });
+  }
+});
 
-module.exports=router;
+module.exports = router;
