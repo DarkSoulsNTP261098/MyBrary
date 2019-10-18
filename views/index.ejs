@@ -1,10 +1,94 @@
+<div class="header_bar">
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img
+            src="images/9c1559fc-1a02-45bb-a1c5-ddce544c3d37.jpg"
+            style="width:100%;height: 500px"
+          />
+        </div>
+
+        <div class="mySlides fade">
+          <img
+            src="images/66aa7b53-6fb7-4b63-a61f-d4745b2ce457.jpg
+              "
+            style="width:100% ;height: 500px;"
+          />
+        </div>
+
+        <div class="mySlides fade">
+          <img src="audio/video.gif" " style=" width:100% ;height: 500px;" />
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    
+<div class="service_bar">
+      <div class="content1">
+        <div class="service">
+          <div class="serviceimg">
+            <img src="/icons/bs-1_45x.png" alt="no load icon" />
+          </div>
+          <div class="info">
+            <div class="title">Quick Delivery</div>
+            <div class="caption">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content2">
+        <div class="service">
+          <div class="serviceimg">
+            <img src="/icons/bs-2_45x.png" alt="no load icon" />
+          </div>
+          <div class="info">
+            <div class="title">Pay with Easy</div>
+            <div class="caption">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content3">
+        <div class="service">
+          <div class="serviceimg">
+            <img src="/icons/bs-3_45x.png" alt="no load icon" />
+          </div>
+          <div class="info">
+            <div class="title">Quick Delivery</div>
+            <div class="caption">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content4">
+        <div class="service">
+          <div class="serviceimg">
+            <img src="/icons/bs-4_45x.png" alt="no load icon" />
+          </div>
+          <div class="info">
+            <div class="title">Secured Payment</div>
+            <div class="caption">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 <h2>Recently Added</h2>
 
 <div>
 
     
     <%books.forEach(book=>{%>
+    <a href="/books/<%=book.id%>">
         <img height="150" width="100" src="<%= book.coverImagePath%>" alt="ko hien thi dc">
+        </a>
     
     <%})%>      
 

@@ -10,20 +10,31 @@
     <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
     <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+    
     <style>
         .filepond--root {
             max-height: 300px;
             max-width:200px;
             }
+
     </style>
     <script defer src='/javascripts/fileUpload.js'></script>
     <title>Mybrary</title>
 </head>
 <body>
+<div class='main'>
     <%- include('../partials/header.ejs') %>
     <%- include('../partials/errorMessage.ejs') %>
     <br>
     <%-body%>
-    <div id='test'></div>
+    <br>
+     <%- include('../partials/footer.ejs') %>
+         
+     <script defer src='/javascripts/slideshow.js'></script>
+</div>
 </body>
 </html>
